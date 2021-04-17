@@ -26,16 +26,49 @@ gem install k_ext-github
 
 ### Main Story
 
-
+As a Developer, I need manage github repositories, so that my code is version controlled
 
 See all [stories](./STORIES.md)
-
 
 ## Usage
 
 See all [usage examples](./USAGE.md)
 
+### Basic Example
 
+#### List all repositories
+
+Get a list of all repositories linked to this personal access token
+
+```ruby
+pat = KExt::Github.configuration.personal_access_token
+api = KExt::Github::Api.new(token: pat)
+
+repos = api.repositories
+
+KExt::Github::Printer.repositories_as_table(repos)
+```
+
+#### List all
+
+![List Repos](docs/images/list-repositories.png)
+
+#### List repositories for specific organization
+
+Get a list of repositories for the organization **klueless-csharp-samples** linked to this personal access token
+
+```ruby
+pat = KExt::Github.configuration.personal_access_token
+api = KExt::Github::Api.new(token: pat)
+
+repos = api.organization_repositories('klueless-csharp-samples')
+
+KExt::Github::Printer.repositories_as_table(repos)
+```
+
+#### List repos by organization
+
+![List Repos](docs/images/list-repositories-for-organization.png)
 
 ## Development
 
@@ -45,7 +78,7 @@ Checkout the repo
 git clone klueless-io/k_ext-github
 ```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. 
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests.
 
 You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
