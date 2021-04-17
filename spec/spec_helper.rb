@@ -10,32 +10,18 @@ RSpec.configure do |config|
   config.example_status_persistence_file_path = '.rspec_status'
   config.filter_run_when_matching :focus
 
+  # Most of the tests work directly against the git hub repos.
+  # There is no mocks or vcr going on, so if you want to test
+  # correctly, you have to configure the access tokens and set
+  # integration_tests: false
+
+  # set to true before pushing so that tests do not run on Actions
+  config.filter_run_excluding integration_tests: true
+
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
-
-  # # ----------------------------------------------------------------------
-  # # Usecase Documentor
-  # # ----------------------------------------------------------------------
-
-  # KUsecases.configure(config)
-
-  # config.extend KUsecases
-
-  # config.before(:context, :usecases) do
-  #   puts '-' * 70
-  #   puts self.class
-  #   puts '-' * 70
-  #   @documentor = KUsecases::Documentor.new(self.class)
-  # end
-
-  # config.after(:context, :usecases) do
-  #   @documentor.render
-  #   puts '-' * 70
-  #   puts self.class
-  #   puts '-' * 70
-  # end
 end
