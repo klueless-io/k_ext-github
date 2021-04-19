@@ -4,6 +4,8 @@ module KExt
   module Github
     # Configuration class for KExt::Github
     class Configuration
+      include KUtil::Data::InstanceVariablesToH
+
       attr_accessor :user
       attr_accessor :personal_access_token
       attr_accessor :personal_access_token_delete

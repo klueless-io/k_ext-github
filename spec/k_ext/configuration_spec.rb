@@ -8,7 +8,7 @@ require 'spec_helper'
 # NOTE: Turn on integration tests using the following command in spec_helper
 #   config.filter_run_excluding :integration_tests => false
 # ----------------------------------------------------------------------
-RSpec.describe KExt::Github::Configuration, :integration_tests do
+RSpec.describe KExt::Github::Configuration do
   include KLog::Logging
 
   describe 'module helper' do
