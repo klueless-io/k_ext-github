@@ -2,6 +2,7 @@
 
 require 'virtus'
 require 'k_log'
+require 'k_util'
 
 require 'k_ext/github/version'
 require 'k_ext/github/configuration'
