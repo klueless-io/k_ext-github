@@ -17,7 +17,7 @@ module KExt
       attribute :client, Octokit::Client, writer: :private
 
       def self.instance(access_token)
-        GithubApi.new(token: access_token)
+        Api.new(token: access_token)
       end
 
       # Create API for communicating with GitHub
@@ -62,8 +62,28 @@ module KExt
 
       # list of repositories for this user
       #
-      def repositories
-        items = @client.repositories({}, query: { per_page: 100 })
+      def repositories(per_page: 100, page: 1)
+        items = @client.repositories({}, query: { per_page: per_page, page: page })
+
+        items.map { |item| KExt::Github::Models::Repository.new(item) }
+      end
+
+      # list of ALL repositories for this user
+      #
+      def all_repositories
+        # NOTE: Does not seam to work
+        # items = @client.all_repositories({})
+
+        items = []
+        page = 1
+        keep_going = true
+
+        while keep_going
+          paged_items = repositories(page: page)
+          items += paged_items
+          page += 1
+          keep_going = paged_items.length.positive? && page <= 50
+        end
 
         items.map { |item| KExt::Github::Models::Repository.new(item) }
       end

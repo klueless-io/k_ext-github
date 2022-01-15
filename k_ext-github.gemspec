@@ -44,4 +44,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'octokit', '~> 4.0'
 
   spec.add_dependency 'virtus', '~> 1.0.5'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 end
