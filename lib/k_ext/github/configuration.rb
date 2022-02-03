@@ -11,7 +11,7 @@ module KExt
       attr_accessor :personal_access_token_delete
 
       def initialize
-        @user = ENV['GITHUB_USER']
+        @user = ENV['GH_USER'] || ENV['GITHUB_USER']
         @personal_access_token = ENV['GITHUB_PERSONAL_ACCESS_TOKEN']
         @personal_access_token_delete = ENV['GITHUB_PERSONAL_ACCESS_TOKEN_DELETE']
       end
