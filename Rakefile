@@ -15,9 +15,9 @@ require 'rake/extensiontask'
 desc 'Compile all the extensions'
 task build: :compile
 
-# Rake::ExtensionTask.new('k_ext_github') do |ext|
-#   ext.lib_dir = 'lib/k_ext/github'
-# end
+Rake::ExtensionTask.new('k_ext_github') do |ext|
+  ext.lib_dir = 'lib/k_ext/github'
+end
 
 desc 'Publish the gem to RubyGems.org'
 task :publish do
