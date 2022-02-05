@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 require 'virtus'
+require 'k_config'
 require 'k_log'
 require 'k_util'
 
 require 'k_ext/github/version'
 require 'k_ext/github/configuration'
+require 'k_ext/github/github_configuration'
 require 'k_ext/github/models/hook'
 require 'k_ext/github/models/owner'
 require 'k_ext/github/models/repository'
