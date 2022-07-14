@@ -38,13 +38,13 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   # spec.extensions    = ['ext/k_ext_github/extconf.rb']
 
-  spec.add_dependency 'k_config', '~> 0.0.0'
-  spec.add_dependency 'k_log', '~> 0.0.0'
-  spec.add_dependency 'k_type', '~> 0.0.0'
-  spec.add_dependency 'k_util', '~> 0.0.0'
-  spec.add_dependency 'octokit', '~> 4.0'
   spec.add_dependency 'faraday-retry'
+  spec.add_dependency 'k_config', '~> 0'
+  spec.add_dependency 'k_log', '~> 0'
+  spec.add_dependency 'k_type', '~> 0'
+  spec.add_dependency 'k_util', '~> 0'
+  spec.add_dependency 'octokit'
 
-  spec.add_dependency 'virtus', '~> 1.0.5'
+  spec.add_dependency 'virtus'
   spec.metadata['rubygems_mfa_required'] = 'true'
 end
